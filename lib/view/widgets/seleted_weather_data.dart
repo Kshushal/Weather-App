@@ -57,7 +57,7 @@ class WeatherInformation extends StatelessWidget {
               children: [
                 Padding(
                   padding: const EdgeInsets.only(left: 8.0),
-                  child: Container(
+                  child: SizedBox(
                     height: 300,
                     width: MediaQuery.of(context).size.width * 0.8,
                     child: GridView(

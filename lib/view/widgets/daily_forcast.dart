@@ -6,7 +6,8 @@ class DailyForecast extends StatelessWidget {
   final String subtitle;
   final Function()? onTap;
 
-  const DailyForecast(this.context, this.title, this.subtitle, {this.onTap});
+  const DailyForecast(this.context, this.title, this.subtitle,
+      {super.key, this.onTap});
 
   @override
   Widget build(BuildContext context) {

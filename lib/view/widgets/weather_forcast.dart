@@ -34,7 +34,8 @@ class ForecastWeather extends StatelessWidget {
                     context: context,
                     builder: (BuildContext context) {
                       return AlertDialog(
-                        backgroundColor: Color.fromARGB(255, 120, 195, 222),
+                        backgroundColor:
+                            const Color.fromARGB(255, 120, 195, 222),
                         insetPadding: EdgeInsets.zero,
                         contentPadding: EdgeInsets.zero,
                         clipBehavior: Clip.antiAliasWithSaveLayer,
