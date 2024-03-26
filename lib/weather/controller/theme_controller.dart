@@ -1,5 +1,3 @@
-// ignore_for_file: must_be_immutable
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -23,10 +21,10 @@ class UserProfileScreen extends StatelessWidget {
                     leading: const Icon(Icons.discount),
                     title: DropdownButton<String>(
                       value: themeController.selectedTheme.value,
-                      underline: const SizedBox(),
+                      underline: SizedBox(),
                       iconSize: 55,
                       isExpanded: true,
-                      icon: const Icon(Icons.arrow_drop_down_rounded),
+                      icon: Icon(Icons.arrow_drop_down_rounded),
                       elevation: 50,
                       iconDisabledColor: Colors.blue,
                       iconEnabledColor: Colors.blue,
@@ -55,7 +53,7 @@ class ProfileController extends GetxController {
   RxString selectedTheme = 'Light'.obs;
 
   void changeTheme(String? value) {
-    selectedTheme.value = value!;
+    selectedTheme.value = value! as String;
     if (value == 'Dark') {
       Get.changeTheme(ThemeData.dark());
     } else {

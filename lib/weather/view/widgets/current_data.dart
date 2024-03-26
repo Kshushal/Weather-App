@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-import 'package:myweatherapp/controller/weather_controller.dart';
+import 'package:myweatherapp/weather/controller/weather_controller.dart';
 
 class CurrentDataCard extends StatelessWidget {
   const CurrentDataCard({Key? key});
@@ -99,11 +99,15 @@ class CurrentDataCard extends StatelessWidget {
           ),
           Text(
             title,
-            style: const TextStyle(fontSize: 14, color: Colors.black),
+            style: const TextStyle(
+              fontSize: 14,
+            ),
           ),
           Text(
             value,
-            style: const TextStyle(fontSize: 14, color: Colors.black),
+            style: const TextStyle(
+              fontSize: 14,
+            ),
           ),
         ],
       ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:myweatherapp/controller/weather_controller.dart';
-import 'package:myweatherapp/model/weather_model.dart';
+import 'package:myweatherapp/weather/controller/weather_controller.dart';
+import 'package:myweatherapp/weather/model/weather_model.dart';
 
 class WeatherInformation extends StatelessWidget {
   final ListElement weatherInfo;

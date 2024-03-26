@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:core';
 import 'package:http/http.dart' as http;
 import 'package:get/get.dart';
-import 'package:myweatherapp/model/weather_model.dart';
+import 'package:myweatherapp/weather/model/weather_model.dart';
 
 class WeatherController extends GetxController {
   var cardSwitch = true.obs;

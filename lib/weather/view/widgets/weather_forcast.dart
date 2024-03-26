@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-import 'package:myweatherapp/controller/weather_controller.dart';
-import 'package:myweatherapp/view/widgets/daily_forcast.dart';
-import 'package:myweatherapp/view/widgets/seleted_weather_data.dart';
+import 'package:myweatherapp/weather/controller/weather_controller.dart';
+import 'package:myweatherapp/weather/view/widgets/daily_forcast.dart';
+import 'package:myweatherapp/weather/view/widgets/seleted_weather_data.dart';
 
 class ForecastWeather extends StatelessWidget {
   const ForecastWeather({Key? key}) : super(key: key);
