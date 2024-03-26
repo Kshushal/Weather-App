@@ -35,6 +35,10 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
             itemBuilder: (context, index) {
               final user = userController.user[index];
               return ListTile(
+                leading: CircleAvatar(
+                  backgroundImage:
+                      NetworkImage('${user.avatar}'), // Placeholder image
+                ),
                 title: Text('${user.name}'),
                 subtitle: Text('${user.email}'),
                 trailing: Text('Password: \$${user.password}'),
