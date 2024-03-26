@@ -17,7 +17,7 @@ class DailyForecast extends StatelessWidget {
         height: MediaQuery.of(context).size.height * 0.20,
         width: MediaQuery.of(context).size.width * 0.18,
         decoration: BoxDecoration(
-          color: const Color.fromARGB(255, 143, 173, 225),
+          color: const Color.fromARGB(255, 69, 137, 255),
           borderRadius: BorderRadius.circular(25),
           border: Border.all(color: const Color.fromARGB(255, 2, 25, 90)),
         ),

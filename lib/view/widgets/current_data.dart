@@ -1,4 +1,4 @@
-// ignore_for_file: unnecessary_null_comparison
+// ignore_for_file: use_key_in_widget_constructors
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -6,7 +6,7 @@ import 'package:intl/intl.dart';
 import 'package:myweatherapp/controller/weather_controller.dart';
 
 class CurrentDataCard extends StatelessWidget {
-  const CurrentDataCard({super.key});
+  const CurrentDataCard({Key? key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,55 +15,63 @@ class CurrentDataCard extends StatelessWidget {
 
     return Obx(() {
       var weatherData = weatherController.weather.value;
-      if (weatherData == null) {
+      var finalWeather = weatherData.list?.first;
+      if (finalWeather == null ||
+          finalWeather.main == null ||
+          finalWeather.wind == null) {
         return const Center(
-          child: CircularProgressIndicator(),
+          child: Text(
+            'Loading.......',
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          ),
         );
       }
       return Column(
         children: [
-          const Row(
+          Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Padding(
-                padding: EdgeInsets.only(left: 8.0, right: 8),
+                padding: const EdgeInsets.only(left: 8.0, right: 8),
                 child: Padding(
-                  padding: EdgeInsets.only(left: 15.0),
+                  padding: const EdgeInsets.only(left: 15.0),
                   child: Text(
-                    'Nashik',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
+                    weatherData.city?.name ?? '',
+                    style: const TextStyle(
+                        fontWeight: FontWeight.w400, fontSize: 20),
                   ),
                 ),
               ),
             ],
           ),
           Padding(
-            padding: const EdgeInsets.only(right: 160.0),
+            padding: const EdgeInsets.only(right: 145.0),
             child: Text(DateFormat().format(now)),
           ),
           Row(
             children: [
               Container(
-                width: MediaQuery.of(context).size.width * 0.97,
+                width: MediaQuery.of(context).size.width * 0.95,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(16),
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     currentWeatherData(
                       title: 'Feels Like',
-                      value: '${weatherData.list!.first.main!.feelsLike}°c',
+                      value: '${finalWeather.main!.feelsLike}°c',
                       imagePath: 'assets/wind.png',
                     ),
                     currentWeatherData(
                       title: 'Humidity',
-                      value: '${weatherData.list!.first.main!.humidity}°c',
+                      value: '${finalWeather.main!.humidity}°c',
                       imagePath: 'assets/wind.png',
                     ),
                     currentWeatherData(
                       title: 'Wind',
-                      value: '${weatherData.list!.first.wind!.speed} km/h',
+                      value: '${finalWeather.wind!.speed} km/h',
                       imagePath: 'assets/wind.png',
                     ),
                   ],
@@ -82,7 +90,7 @@ class CurrentDataCard extends StatelessWidget {
     required String imagePath,
   }) {
     return Padding(
-      padding: const EdgeInsets.only(top: 18.0),
+      padding: const EdgeInsets.all(18.0),
       child: Column(
         children: [
           Image(
@@ -91,11 +99,11 @@ class CurrentDataCard extends StatelessWidget {
           ),
           Text(
             title,
-            style: const TextStyle(fontSize: 16, color: Colors.black),
+            style: const TextStyle(fontSize: 14, color: Colors.black),
           ),
           Text(
             value,
-            style: const TextStyle(fontSize: 16, color: Colors.black),
+            style: const TextStyle(fontSize: 14, color: Colors.black),
           ),
         ],
       ),
