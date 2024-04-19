@@ -12,6 +12,17 @@ class ForecastWeather extends StatelessWidget {
   Widget build(BuildContext context) {
     var weatherController = Get.put(WeatherController());
     var weather = weatherController.weather.value;
+    var finalWeather = weather.list?.first;
+    if (finalWeather == null ||
+        finalWeather.main == null ||
+        finalWeather.wind == null) {
+      return const Center(
+        child: Text(
+          'Loading.......',
+          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+        ),
+      );
+    }
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       child: Row(

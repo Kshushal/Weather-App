@@ -41,7 +41,7 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                 ),
                 title: Text('${user.name}'),
                 subtitle: Text('${user.email}'),
-                trailing: Text('Password: \$${user.password}'),
+                trailing: Text('Password: \$${user.updatedAt}'),
                 // You can add more details here if needed
                 // onTap: () {
                 //   // Handle tap on product

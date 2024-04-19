@@ -1,5 +1,3 @@
-
-
 import 'dart:convert';
 
 WeatherResponse weatherResponseFromJson(String str) =>
@@ -117,7 +115,7 @@ class ListElement {
   Clouds? clouds;
   Wind? wind;
   int? visibility;
-  int? pop;
+  double? pop;
   Sys? sys;
   DateTime? dtTxt;
 
@@ -143,7 +141,7 @@ class ListElement {
         clouds: json["clouds"] == null ? null : Clouds.fromJson(json["clouds"]),
         wind: json["wind"] == null ? null : Wind.fromJson(json["wind"]),
         visibility: json["visibility"],
-        pop: json["pop"],
+        pop: json["pop"].toDouble(),
         sys: json["sys"] == null ? null : Sys.fromJson(json["sys"]),
         dtTxt: json["dt_txt"] == null ? null : DateTime.parse(json["dt_txt"]),
       );
