@@ -45,6 +45,7 @@ dependencies:
   lite_rolling_switch: ^1.0.1
   animated_toggle_switch: ^0.8.2
   shared_preferences: ^2.2.2
+  video_player_web_hls: ^1.2.0
 
 dev_dependencies:
   flutter_test:
